@@ -6,7 +6,7 @@ on:
       username:
         description: 'Enter your username'
         required: true
-        default: 'Elle'
+        default: 'Doni'
       favorite_color:
         description: 'Enter your favorite color'
         required: true
