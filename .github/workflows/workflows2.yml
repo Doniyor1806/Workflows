@@ -7,14 +7,14 @@ on:
         description: 'Enter your username'
         required: true
         default: 'Doni'
-      favorite_color:
-        description: 'Enter your favorite color'
+      Enter_password:
+        description: 'Enter your password'
         required: true
-        default: 'blue'
+        default: '*****'
  
 jobs:
   run_the_job:
     runs-on: ubuntu-latest
     steps:
       - name: Echo Username and Favorite Color
-        run: echo "${{ github.event.inputs.username }} says hello, and favorite color is ${{ github.event.inputs.favorite_color }}"
+        run: echo "${{ github.event.inputs.username }} is username, and password is ${{ github.event.inputs.Enter_password }}"
