@@ -6,7 +6,7 @@ on:
       username:
         description: 'Enter your username'
         required: true
-        default: 'Doni'
+        default: 'Enter your login'
       Enter_password:
         description: 'Enter your password'
         required: true
