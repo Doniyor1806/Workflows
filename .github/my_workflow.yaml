@@ -1,5 +1,5 @@
 
-name: CI
+name: First Workflow
 
 on:
   push:
