@@ -13,8 +13,23 @@ on:
         default: 'white'
  
 jobs:
-  run_the_job:
+  job1:
     runs-on: ubuntu-latest
     steps:
       - name: Echo Username and Favorite Color
         run: echo "${{ github.event.inputs.username }} is username, and favorite color is ${{ github.event.inputs.favorite_color }}"
+job2:
+  runs-on: ubuntu-latest
+  needs: job1
+output:
+  GREETING: ${{ steps.greet.output.greeting }}
+  steps:
+    - name: Create a greeting message
+    id: great
+    run: echo " ::set-output name=greeting::Bonjour,${{ needs.job1.outputs.username }}! Your favorite color is ${{ needs.job1.outputs.favorite_color }}."
+job3:
+  runs-on: ubuntu-latest
+    needs: job2
+    steps:
+      - name: Echo the greeting message
+        run: echo "${{ needs.job2.outputs.GREETING }}"
