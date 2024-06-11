@@ -17,4 +17,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Echo Username and Favorite Color
-        run: echo "${{ github.event.inputs.username }} is username, and password is ${{ github.event.inputs.Enter_password }}"
+        run: echo "${{ github.event.inputs.username }} is username, and favorite color is ${{ github.event.inputs.favorite_color }}"
