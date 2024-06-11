@@ -6,11 +6,11 @@ on:
       username:
         description: 'Enter your username'
         required: true
-        default: 'Enter your login'
-      Enter_password:
-        description: 'Enter your password'
+        default: 'Doniyor'
+      favorite_color:
+        description: 'Favorite color'
         required: true
-        default: '*****'
+        default: 'white'
  
 jobs:
   run_the_job:
