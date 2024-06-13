@@ -11,6 +11,11 @@ on:
         description: 'Favorite color'
         required: true
         default: 'white'
+      model:
+        description: 'Enter your car model'
+        required: true
+        default: 'Porsche'
+
 
 jobs:
   job1:
