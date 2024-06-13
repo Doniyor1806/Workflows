@@ -48,7 +48,7 @@ jobs:
          USERNAME=${{ needs.job1.outputs.username }}
          COLOR=${{ needs.job1.outputs.favorite_color }}
          CAR_MODEL=${{ needs.job1.outputs.car_model }}
-         GREETING="Welcome, $USERNAME! you have chosen $COLOR $CAR_MODEL in our system."
+         GREETING="Welcome, $USERNAME! you have chosen $COLOR colored $CAR_MODEL in our system."
          echo "GREETING=$GREETING" >> $GITHUB_OUTPUT
   job3:
     runs-on: ubuntu-latest
