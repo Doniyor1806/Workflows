@@ -6,7 +6,7 @@ on:
       first_name:
         description: 'Enter your first name'
         required: true
-        default: 'Doniyor'
+        default: 'Homer'
       last_name:
         description: 'Enter your last name'
         required: true
