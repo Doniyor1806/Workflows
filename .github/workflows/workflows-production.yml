@@ -41,7 +41,7 @@ jobs:
         run: echo "employee_number=${{ github.event.inputs.employee_number }}" >> $GITHUB_OUTPUT
       - name: Echo Employee email
         id: output-email
-        run: echo "employee_email=${{ github.event.inputs.email }}" >> $GITHUB_OUTPUT
+        run: echo "email=${{ github.event.inputs.email }}" >> $GITHUB_OUTPUT
 
   job2:
     runs-on: ubuntu-latest
