@@ -27,7 +27,7 @@ jobs:
     outputs:
       first_name: ${{ steps.output-first-name.outputs.first_name }}
       last_name: ${{ steps.output-last-name.outputs.last_name }}
-      employee_number: ${{ steps.output_employee_number.outputs.employee_number }}
+      employee_number: ${{ steps.output-employee-number.outputs.employee_number }}
       email: ${{ steps.output_email.outputs.email }}
     steps:
       - name: Echo First name
@@ -37,10 +37,10 @@ jobs:
         id: output-last-name
         run: echo "last_name=${{ github.event.inputs.last_name }}" >> $GITHUB_OUTPUT 
       - name: Echo Employee number
-        id: output-employee-iternumber
+        id: output-employee-number
         run: echo "employee_number=${{ github.event.inputs.employee_number }}" >> $GITHUB_OUTPUT
       - name: Echo Employee email
-        id: output-employee-email
+        id: output_email
         run: echo "employee_email=${{ github.event.inputs.email }}" >> $GITHUB_OUTPUT
 
   job2:
@@ -64,6 +64,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: job2
     steps:
-      - name: Echo the greeting message
+      - name: Echo Employee information
         run: echo "${{ needs.job2.outputs.info }}"
   
