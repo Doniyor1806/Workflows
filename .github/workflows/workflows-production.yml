@@ -18,7 +18,7 @@ on:
       email:
         description: 'Enter your email'
         required: true
-        default: 'first@email.co.' 
+        default: 'first@email.com' 
 
 
 jobs:
@@ -65,5 +65,5 @@ jobs:
     needs: job2
     steps:
       - name: Echo the greeting message
-        run: echo "${{ needs.job2.outputs.GREETING }}"
+        run: echo "${{ needs.job2.outputs.info }}"
   
