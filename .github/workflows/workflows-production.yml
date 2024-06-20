@@ -1,0 +1,69 @@
+name: HR Database
+
+on:
+  workflow_dispatch:
+    inputs:
+      first_name:
+        description: 'Enter your first name'
+        required: true
+        default: 'Doniyor'
+      last_name:
+        description: 'Enter your last name'
+        required: true
+        default: 'S'
+      employee_number:
+        description: 'Enter your badge number'
+        required: true
+        default: '12345'
+      email:
+        description: 'Enter your email'
+        required: true
+        default: 'first@email.co.' 
+
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      first_name: ${{ steps.output-first-name.outputs.first-name }}
+      last_name: ${{ steps.output-last-name.outputs.last_name }}
+      employee_number: ${{ steps.output-employee-number.outputs.employee_number }}
+      email: ${{ steps.output-email.outputs.email}}
+    steps:
+      - name: Echo First name
+        id: output-first-name
+        run: echo "first_name=${{ github.event.inputs.first_name }}" >> $GITHUB_OUTPUT
+      - name: Echo Last name
+        id: output-last-name
+        run: echo "last_name=${{ github.event.inputs.last_name }}" >> $GITHUB_OUTPUT 
+      - name: Echo Employee number
+        id: output-employee-iternumber
+        run: echo "employee_number=${{ github.event.inputs.employee_number }}" >> $GITHUB_OUTPUT
+      - name: Echo Employee email
+        id: output-employee-email
+        run: echo "employee_email=${{ github.event.inputs.employee_email }}" >> $GITHUB_OUTPUT
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    outputs:
+      info: ${{ steps.info.outputs.info }}
+    steps:
+      - name: Employee Information
+        id: info
+        run: |
+         NAME=${{ needs.job1.outputs.first_name }}
+         LAST_NAME=${{ needs.job1.outputs.last_name }}
+         ID=${{ needs.job1.outputs.employee_number }}
+         EMAIL=${{ needs.job1.outputs.email}}
+
+
+         info="Welcome, $NAME $LAST_NAME your employee number is $ID and your email address is $EMAIL ."
+         echo "info=$info" >> $GITHUB_OUTPUT
+  job3:
+    runs-on: ubuntu-latest
+    needs: job2
+    steps:
+      - name: Echo the greeting message
+        run: echo "${{ needs.job2.outputs.GREETING }}"
+  
