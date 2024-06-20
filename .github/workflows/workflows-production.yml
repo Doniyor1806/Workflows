@@ -55,7 +55,7 @@ jobs:
          NAME=${{ needs.job1.outputs.first_name }}
          LAST_NAME=${{ needs.job1.outputs.last_name }}
          ID=${{ needs.job1.outputs.employee_number }}
-         EMAIL=${{ needs.job1.outputs.email}}
+         EMAIL=${{ needs.job1.outputs.email }}
 
 
          info="Welcome, $NAME $LAST_NAME your employee number is $ID and your email address is $EMAIL ."
