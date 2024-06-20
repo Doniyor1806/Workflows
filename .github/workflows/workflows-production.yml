@@ -1,4 +1,4 @@
-name: HR Database
+name: HR_Database
 
 on:
   workflow_dispatch:
